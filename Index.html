@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+  <link rel="stylesheet" href="Style.css" type="text/css">
+  <style>
+    .hidden{
+      display:none;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="content">
+    <h3 style="color: #9b9a9a">Area of a Rectangle</h3>
+    <div class="row">
+      <div>
+        <label for="width">Width</label>
+        <input type="text" id="width" name="width" style="width: 100px;">
+      </div>
+      <div>
+        <label for="height">height</label>
+        <input type="text" id="height" name="height" style="width: 100px;">
+      </div>
+    </div>
+    <button id="calc">Calculate</button>
+    <button id="clear">Clear</button>
+    <p class="hidden" style="color: #9B9A9AFF"></p>
+  </div>
+</div>
+<script>
+
+  const a = document.getElementById('width');
+  const b = document.getElementById('height');
+  const ans = document.querySelector('p');
+  const calculateButton = document.getElementById('calc');
+  const clearButton = document.getElementById('clear');
+
+  clearButton.addEventListener('click', function(){
+    a.value = " ";
+    b.value = " ";
+    ans.textContent = "";
+    ans.classList.add("hidden")
+  })
+  calculateButton.addEventListener('click', function(){
+    let width = +a.value;
+    let height = +b.value;
+    ans.classList.remove("hidden")
+
+    ans.textContent = `The area is ${areaOfRect(width, height)}`
+  })
+  function areaOfRect(width, height){
+    return width * height;
+  }
+
+
+</script>
+</body>
